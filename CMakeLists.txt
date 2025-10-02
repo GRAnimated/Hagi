@@ -39,7 +39,8 @@ set(NN_SDK_TYPE "Release")
 
 target_include_directories(hagi PRIVATE src)
 target_include_directories(hagi PUBLIC lib/nnheaders/include)
-# target_include_directories(hagi PUBLIC lib/zlib)
+target_include_directories(hagi PUBLIC lib/libpng)
+target_include_directories(hagi PUBLIC lib/zlib)
 target_include_directories(hagi PUBLIC lib)
 
 target_compile_definitions(hagi PRIVATE NON_MATCHING)
@@ -61,6 +62,11 @@ target_compile_options(hagi PRIVATE -Wno-sign-compare)
 
 add_definitions(-D SAFETY_CHECKS)
 
-# add_subdirectory(lib/zlib)
-# target_include_directories(hagi PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/lib/zlib) # for zconf.h
-# target_link_libraries(hagi PRIVATE zlibstatic)
+add_subdirectory(lib/zlib)
+target_include_directories(hagi PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/lib/zlib) # for zconf.h
+target_link_libraries(hagi PRIVATE zlibstatic)
+
+add_subdirectory(lib/libpng)
+
+# TODO: Figure out whether all png and zlib functions exist, or just the used ones
+target_link_libraries(hagi PRIVATE -Wl,--whole-archive libpng -Wl,--no-whole-archive)
