@@ -67,6 +67,14 @@ target_include_directories(hagi PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/lib/zlib) # 
 target_link_libraries(hagi PRIVATE zlibstatic)
 
 add_subdirectory(lib/libpng)
+target_compile_options(libpng PRIVATE
+  -O3
+)
 
-# TODO: Figure out whether all png and zlib functions exist, or just the used ones
-target_link_libraries(hagi PRIVATE -Wl,--whole-archive libpng -Wl,--no-whole-archive)
+# TODO: Remove this part once libpng is used, since we only need the used functions
+target_link_options(hagi PRIVATE
+    "SHELL:-Wl,--whole-archive"
+    "$<TARGET_FILE:libpng>"
+    "SHELL:-Wl,--no-whole-archive"
+)
+target_link_libraries(hagi PRIVATE libpng)
