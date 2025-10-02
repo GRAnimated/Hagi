@@ -25,9 +25,9 @@ jobs:
     - name: Set up cache for toolchain
       uses: actions/cache@v4
       with:
-        key: clang-900
+        key: clang-7.0.0
         path: |
-          toolchain/clang-9.0.0
+          toolchain/clang-7.0.0
     - name: Run simplified setup
       run: python3 tools/setup.py --project
     - name: Build project

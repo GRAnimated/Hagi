@@ -18,7 +18,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-file(GLOB_RECURSE SOURCES_GAME ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/src/*.c ${PROJECT_SOURCE_DIR}/src/*.hpp ${PROJECT_SOURCE_DIR}/src/*.h ${PROJECT_SOURCE_DIR}/lib/windows.cpp)
+file(GLOB_RECURSE SOURCES_GAME ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/source/*.c ${PROJECT_SOURCE_DIR}/source/*.hpp ${PROJECT_SOURCE_DIR}/source/*.h)
 
 add_executable(hagi ${SOURCES_GAME})
 
@@ -37,7 +37,7 @@ set(NN_SDK_MINOR 5)
 set(NN_SDK_PATCH 1)
 set(NN_SDK_TYPE "Release")
 
-target_include_directories(hagi PRIVATE hagi)
+target_include_directories(hagi PRIVATE src)
 target_include_directories(hagi PUBLIC lib/nnheaders/include)
 # target_include_directories(hagi PUBLIC lib/zlib)
 target_include_directories(hagi PUBLIC lib)

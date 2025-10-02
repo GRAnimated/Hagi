@@ -76,7 +76,7 @@ def main():
 
     setup.install_viking()
     prepare_executable(args.original_nso)
-    setup.set_up_compiler("9.0.0")
+    # setup.set_up_compiler("7.0.0")
     setup.set_up_compiler("4.0.1") # for linker
     create_build_dir()
 

@@ -54,7 +54,7 @@ Additionally, you'll also need:
     * This will:
         * install tools/check to check for differences in decompiled code
         * convert the executable if necessary
-        * set up [Clang 4.0.1](https://releases.llvm.org/download.html#4.0.1) by downloading it from the official LLVM website
+        * set up [Clang 7.0.0](https://releases.llvm.org/download.html#7.0.0) by downloading it from the official LLVM website
         * patch Clang to match Nintendo's changes
         * create a build directory in `build/`
     * If something goes wrong, follow the instructions given to you by the script.
