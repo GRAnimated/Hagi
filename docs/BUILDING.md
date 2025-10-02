@@ -17,7 +17,7 @@ The instructions below assume you're running a form of Linux (WSL or native).
 Ubuntu users can install those dependencies by running:
 
 ```shell
-sudo apt install python3 ninja-build cmake ccache libssl-dev libncurses5 llvm
+sudo apt install python3 ninja-build cmake ccache libssl-dev libncurses5 libxml2 llvm
 ```
 
 If you are running Ubuntu 23.10 or later, the `libncurses5` package won't be available anymore. You can install it from

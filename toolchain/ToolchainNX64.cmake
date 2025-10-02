@@ -1,4 +1,5 @@
-set(CLANG "${CMAKE_CURRENT_LIST_DIR}/clang-4.0.1")
+set(CLANG "${CMAKE_CURRENT_LIST_DIR}/clang-9.0.0")
+set(CLANG_OLDER "${CMAKE_CURRENT_LIST_DIR}/clang-4.0.1")
 
 set(NX64_OPT_FLAGS "-O3 -g")
 set(NX64_TRIPLE aarch64-linux-elf)
@@ -12,6 +13,7 @@ set(CMAKE_C_COMPILER "${CLANG}/bin/clang")
 set(CMAKE_C_COMPILER_TARGET ${NX64_TRIPLE})
 set(CMAKE_CXX_COMPILER "${CLANG}/bin/clang++")
 set(CMAKE_CXX_COMPILER_TARGET ${NX64_TRIPLE})
+set(CMAKE_LINKER "${CLANG_OLDER}/bin/ld.lld")
 
 set(CMAKE_C_FLAGS_RELEASE ${NX64_OPT_FLAGS})
 set(CMAKE_CXX_FLAGS_RELEASE ${NX64_OPT_FLAGS})
@@ -32,4 +34,4 @@ add_definitions(-D SWITCH)
 
 add_link_options(-nostdlib)
 add_link_options(-fPIC -Wl,-Bsymbolic-functions -shared)
-add_link_options(-fuse-ld=lld)
+add_link_options(-fuse-ld=${CMAKE_LINKER})

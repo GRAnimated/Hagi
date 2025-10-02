@@ -53,6 +53,8 @@ def prepare_executable(original_nso: Optional[Path]):
     if not TARGET_ELF_PATH.is_file():
         setup.fail("internal error while preparing executable (missing ELF); please report")
 
+def get_build_dir():
+    return setup.ROOT / "build"
 
 def create_build_dir():
     build_dir = setup.ROOT / "build"
@@ -75,6 +77,7 @@ def main():
     setup.install_viking()
     prepare_executable(args.original_nso)
     setup.set_up_compiler("9.0.0")
+    setup.set_up_compiler("4.0.1") # for linker
     create_build_dir()
 
 
