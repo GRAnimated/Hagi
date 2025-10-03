@@ -16,6 +16,34 @@ TARGET_ELF_PATH = setup.get_target_elf_path()
 COMPRESSED_V100_HASH = "eb2fd5f1635cbbd4c8f4875f1951e15314d8e1bf37581e2d3468cf9d9a93c2ab"
 UNCOMPRESSED_V100_HASH = "5020cae51cb0feebaf10515ba9b7e9087799774cc0d899aa719e17908adcced1"
 
+def patch_elf(elf_path: Path, search_bytes: bytes, replace_bytes: bytes):
+    if not elf_path.is_file():
+        setup.fail(f"{elf_path} is not a file")
+
+    elf_data = elf_path.read_bytes()
+
+    if len(search_bytes) != len(replace_bytes):
+        setup.fail("Search and replace byte sequences must be of equal length.")
+
+    count = 0
+    patched_data = bytearray()
+    i = 0
+    while i <= len(elf_data) - len(search_bytes):
+        if elf_data[i:i+len(search_bytes)] == search_bytes:
+            patched_data += replace_bytes
+            i += len(search_bytes)
+            count += 1
+        else:
+            patched_data.append(elf_data[i])
+            i += 1
+    patched_data += elf_data[i:]
+
+    if count == 0:
+        setup.fail("Byte sequence not found in ELF.")
+
+    elf_path.write_bytes(patched_data)
+    print(f">>> Patched ELF {count} time(s)")
+
 def prepare_executable(original_nso: Optional[Path]):
     TARGET_HASH = UNCOMPRESSED_V100_HASH
 

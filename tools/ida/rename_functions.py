@@ -7,6 +7,7 @@ import ida_funcs
 import ida_range
 import idautils
 import idaapi
+import ida_bytes
 import os
 import sys
 
@@ -46,7 +47,12 @@ def delete_multichunk_funcs():
 def can_overwrite_name(addr: int, new_name: str):
     if not new_name or new_name.startswith(("sub_", "nullsub_", "j_")):
         return False
-    return True # we have to allow wii u symbols
+    return True  # we have to allow wii u symbols
+
+def has_trap_at_end(addr: int, size: int) -> bool:
+    trap_bytes = b"\xFE\xDE\xFF\xE7"
+    last_bytes = ida_bytes.get_bytes(addr + size, 4)
+    return last_bytes == trap_bytes
 
 delete_multichunk_funcs()
 
@@ -59,8 +65,12 @@ with open(csv_path, "r") as f:
 
     for fn in reader:
         addr = int(fn[0], 16)
-        size = int(fn[2])
+        size = int(fn[2])  # CSV size (possibly without trap)
         name = fn[3]
+
+        # if function has a trap after this size, include it
+        if has_trap_at_end(addr, size):
+            size += 4
 
         func = ida_funcs.get_func(addr)
 
@@ -76,6 +86,7 @@ with open(csv_path, "r") as f:
 
         if can_overwrite_name(addr, name):
             idc.set_name(addr, name, idc.SN_CHECK | idc.SN_NOWARN)
+
         prev_addr = addr
         prev_size = size
 
