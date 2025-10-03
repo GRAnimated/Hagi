@@ -1,5 +1,11 @@
 # Hagi
 
+Hagi is the GameCube and Wii emulator used by Nintendo in Super Mario 3D All-Stars. This repository is a decompilation project of the executable found in its version of Super Mario Sunshine.
+
+## Info
+
+This project is targetting Hagi from SM3DAS v1.0.0's Super Mario Sunshine. This game has a Hagi-only executable, while the Wii games using Hagi contain natively recompiled code which inflate the executable size.
+
 ## Building
 See [BUILDING.md](docs/BUILDING.md).
 

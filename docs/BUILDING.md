@@ -17,7 +17,7 @@ The instructions below assume you're running a form of Linux (WSL or native).
 Ubuntu users can install those dependencies by running:
 
 ```shell
-sudo apt install python3 ninja-build cmake ccache libssl-dev libncurses5 libxml2 llvm
+sudo apt install python3 ninja-build cmake ccache libssl-dev libncurses5 llvm
 ```
 
 If you are running Ubuntu 23.10 or later, the `libncurses5` package won't be available anymore. You can install it from
@@ -41,8 +41,8 @@ Additionally, you'll also need:
 
 2. Run `git submodule update --init --recursive`
 
-3. Acquire the **original v1.0.17 `main` NSO executable**.
-    1. Acquire an NSP dump of v1.0.17. [Dumping guide](https://zeldamods.org/wiki/Help:Dumping_games#Switch)
+3. Acquire the **original v1.0.0 `main` NSO executable**.
+    1. Acquire an NSP dump of Super Mario 3D All Stars v1.0.0. [Dumping guide](https://zeldamods.org/wiki/Help:Dumping_games#Switch). You'll want to dump Super Mario Sunshine out of it.
     2. Setup [hactool](https://github.com/SciresM/hactool) and put your dumped `title.keys` in `$HOME/.switch`.
     3. Run `hactool [path to the NSP] -t pfs0 --outdir=extracted`.
     4. `cd` into `extracted`.
