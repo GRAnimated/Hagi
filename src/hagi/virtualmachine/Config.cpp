@@ -9,12 +9,12 @@ const ConfigNode& ConfigNode::GetChild(const char* key) {
     if (type != Object)
         return defaultConfigNode;
 
-    auto it = data.objectValue;
+    const std::map<std::string, ConfigNode>* map = this->data.objectValue;
     std::string tmp = key;
 
-    auto found = it->find(tmp);
-    if (found != it->end())
-        return found->second;
+    auto it = map->find(tmp);
+    if (it != map->end())
+        return it->second;
 
     return defaultConfigNode;
 }
