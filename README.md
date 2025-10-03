@@ -1,5 +1,11 @@
 # Hagi
 
+[![Discord Channel][discord-badge]][discord]
+
+[discord]: https://discord.gg/xm9pvmVdbq
+[discord-badge]: https://img.shields.io/discord/1423497484323524731?color=%237289DA&logo=discord&logoColor=%23FFFFFF
+
+
 Hagi is the GameCube and Wii emulator used by Nintendo in Super Mario 3D All-Stars. This repository is a decompilation project of the executable found in its version of Super Mario Sunshine.
 
 ## Info
