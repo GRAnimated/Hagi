@@ -50,8 +50,6 @@ target_compile_options(hagi PRIVATE -fno-strict-aliasing)
 target_compile_options(hagi PRIVATE -fsigned-char)
 target_compile_options(hagi PRIVATE -Wall -Wextra -Wdeprecated)
 target_compile_options(hagi PRIVATE -Wextra-semi)
-target_compile_options(hagi PRIVATE -fno-inline -fno-inline-functions)
-target_compile_options(hagi PRIVATE -fno-builtin)
 
 # Disable some warnings that are unavoidable
 target_compile_options(hagi PRIVATE -Wno-unused-parameter -Wno-unused-private-field -Wno-unused-variable)
