@@ -18,7 +18,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-file(GLOB_RECURSE SOURCES_GAME ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/source/*.c ${PROJECT_SOURCE_DIR}/source/*.hpp ${PROJECT_SOURCE_DIR}/source/*.h)
+file(GLOB_RECURSE SOURCES_GAME ${PROJECT_SOURCE_DIR}/src/*.cpp ${PROJECT_SOURCE_DIR}/src/*.c ${PROJECT_SOURCE_DIR}/src/*.hpp ${PROJECT_SOURCE_DIR}/src/*.h ${PROJECT_SOURCE_DIR}/external/*.cpp ${PROJECT_SOURCE_DIR}/external/*.c ${PROJECT_SOURCE_DIR}/external/*.hpp ${PROJECT_SOURCE_DIR}/external/*.h)
 
 add_executable(hagi ${SOURCES_GAME})
 
@@ -42,6 +42,7 @@ target_include_directories(hagi PUBLIC lib/nnheaders/include)
 target_include_directories(hagi PUBLIC lib/libpng)
 target_include_directories(hagi PUBLIC lib/zlib)
 target_include_directories(hagi PUBLIC lib)
+target_include_directories(hagi PUBLIC external)
 
 target_compile_definitions(hagi PRIVATE NON_MATCHING)
 target_compile_definitions(hagi PRIVATE MATCHING_HACK)
