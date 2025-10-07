@@ -1,5 +1,7 @@
 #pragma once
 
+namespace nerd::hagi {
+
 class AiControl;
 class Mmio;
 class Pi;
@@ -29,3 +31,5 @@ public:
     int m_iVolumeRegister;
     int m_iInterruptTimingRegister;
 };
+
+}  // namespace nerd::hagi

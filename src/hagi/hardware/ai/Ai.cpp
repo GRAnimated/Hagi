@@ -3,6 +3,8 @@
 #include "MxicCodeUtils/mxic/interfaces/Mmio.h"
 #include "hagi/hardware/ai/AiControl.h"
 
+namespace nerd::hagi {
+
 Ai::Ai() {}
 
 Ai::~Ai() {}
@@ -58,3 +60,5 @@ int Ai::ReadAiSampleRegister(void* context) {
 int Ai::ReadAiInterruptTimingRegister(void* context) {
     return ((Ai*)context)->m_iInterruptTimingRegister;
 }
+
+}  // namespace nerd::hagi

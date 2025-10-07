@@ -1,5 +1,7 @@
 #pragma once
 
+namespace nerd::hagi {
+
 class Mmio {
 public:
     void RegisterDeviceWriteCallback(int reg, void* context, void (*callback)(void*, void*, int));
@@ -22,3 +24,5 @@ public:
     void* m_GpuReadCallbacks;
     void* m_HostReadCallbacks;
 };
+
+}  // namespace nerd::hagi
