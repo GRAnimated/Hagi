@@ -1,6 +1,8 @@
 #include "Program.h"
 #include "hagi/Hagi.h"
 
+#include "NerdCommonLibs/source/core/nerd_io_ifile.h"
+
 // clang-format off
 Program::Option options[47]{                            
     {"h",                                   "help",                                0, "--help,                                    -h           "}, 
