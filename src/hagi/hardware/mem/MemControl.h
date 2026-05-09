@@ -1,9 +1,11 @@
 #pragma once
+
 namespace nerd::hagi {
 
-class Pi {
+class MemControl {
 public:
-    Pi();
+    MemControl();
+    virtual ~MemControl();
 };
 
 }  // namespace nerd::hagi

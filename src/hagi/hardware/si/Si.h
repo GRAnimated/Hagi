@@ -1,9 +1,10 @@
 #pragma once
+
 namespace nerd::hagi {
 
-class Pi {
+class Si {
 public:
-    Pi();
+    Si();
 };
 
 }  // namespace nerd::hagi

@@ -1,9 +1,10 @@
 #pragma once
+
 namespace nerd::hagi {
 
-class Pi {
+class GxFifoControl {
 public:
-    Pi();
+    GxFifoControl();
 };
 
 }  // namespace nerd::hagi

@@ -4,6 +4,7 @@ namespace nerd::hagi {
 
 class AiControl {
 public:
+    AiControl();
     int _7100054300();
 };
 

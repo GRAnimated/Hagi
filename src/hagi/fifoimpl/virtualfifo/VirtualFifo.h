@@ -1,9 +1,10 @@
 #pragma once
+
 namespace nerd::hagi {
 
-class Pi {
+class VirtualFifo {
 public:
-    Pi();
+    VirtualFifo();
 };
 
 }  // namespace nerd::hagi
